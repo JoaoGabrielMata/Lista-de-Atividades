@@ -1,6 +1,6 @@
 function CriarBotaoSave(){ 
     const botao_save =  document.createElement('button') 
-    botao_save.classList.add("btn", "btn-primary") 
+    botao_save.classList.add("btn","btn-success") 
     botao_save.innerHTML = "Salvar Alteração" 
     botao_save.type = "button"
     botao_save.addEventListener("click", SaveItem) 
@@ -11,8 +11,10 @@ function DeleteItem(){
     this.parentElement.remove()
 }
 function EditItem(){
+    var valor_atual_item_lista = this.parentElement.innerText.replace("DeletarEditar","")
     const item_lista = this.parentElement
     const campo_entrada_para_editar = document.createElement("input") 
+    campo_entrada_para_editar.value = valor_atual_item_lista
     item_lista.innerHTML = ''
     item_lista.appendChild(campo_entrada_para_editar) 
     item_lista.appendChild(CriarBotaoDelete()) 
@@ -57,5 +59,5 @@ function Submit(){
     lista.appendChild (novo_item_lista)
     novo_item_lista.appendChild(CriarBotaoEdit())
     lista.appendChild (novo_item_lista)
-    document.getElementById("item").value = ""
+    document.getElementById("item").value = " "
 }
